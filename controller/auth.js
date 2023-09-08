@@ -10,7 +10,8 @@ const jwt = require('jsonwebtoken');
 exports.create=async(req,res,next)=>{
     try
      {
-       if (!req.files) {
+      console.log(req.files)
+       if (!req.files || req.files.length<1) {
          return res.status(400).json({error:"Photo is required"})
         }
         const file =await req.files[0].originalname
